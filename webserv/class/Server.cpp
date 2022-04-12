@@ -353,6 +353,7 @@ void Server::CGIHandler(Request& request, Connection& con, Location& location)
             request.body_.append(buffer);
             if (request.body_.find("\n") != std::string::npos)
                 request.body_.erase(request.body_.find("\n"), std::string::npos);
+            delete buffer;
         }
     }
     else if (tmp == "CGI-NONE")
