@@ -95,9 +95,9 @@ bool MainServer::openSocket(int port)
 
     if (bind(server_sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
     {
-        std::cout << "bind error" << std::endl;
+        std::cout << "port is already used" << std::endl;
         close(server_sock);
-        return false;
+        exit(1);
     }
 
     if (listen(server_sock, 128) < 0) // 대기큐 5라고 써서 대기큐가 모지랄수도(?)
